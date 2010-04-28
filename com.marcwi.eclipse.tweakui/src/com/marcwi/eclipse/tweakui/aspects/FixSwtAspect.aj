@@ -5,28 +5,26 @@ import org.eclipse.swt.widgets.Tree;
 
 public privileged aspect FixSwtAspect {
 
-	// FIXME Mylyn Task List is broken
-	// FIXME PackageExplorer and Outline selection broken
-	
 	final static int TVS_SINGLEEXPAND = 0x0400;
 
 	int around() :
 		execution(int Tree.widgetStyle()) {
 		int style = proceed();
 		style |= OS.TVS_HASLINES;
-		style &= ~(TVS_SINGLEEXPAND | OS.TVS_TRACKSELECT);
+		style &= ~OS.TVS_TRACKSELECT;
 		return style;
 	}
 
-	int around() :
-		withincode(void Tree.createHandle())
-		&& call(int OS.SetWindowTheme(..)) {
-		return 0;
+	boolean around() :
+		withincode(* Tree.*(..))
+		&& call(boolean OS.IsAppThemed()) {
+		return false;
 	}
 
 	// XXX seems to be unnecessary
 	int around(int hWnd, int Msg, int wParam, int lParam) :
 		withincode(void Tree.createHandle())
+		&& if(false)
 		&& args(hWnd, Msg, wParam, lParam)
 		&& call(int OS.SendMessage(int, int, int, int))
 		&& if (Msg == OS.TVM_SETEXTENDEDSTYLE) {
