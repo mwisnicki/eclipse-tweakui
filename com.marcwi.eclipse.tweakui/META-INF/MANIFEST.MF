@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: User Interface tweaks
+Bundle-SymbolicName: com.marcwi.eclipse.tweakui
+Bundle-Version: 1.0.0
+Bundle-Vendor: Marcin Wisnicki
+Require-Bundle: org.aspectj.runtime;bundle-version="1.6.1";visibility:=reexport,
+ org.eclipse.swt;bundle-version="3.5.2"
+Export-Package: com.marcwi.eclipse.tweakui.aspects
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Import-Package: org.osgi.framework
+Eclipse-SupplementBundle: org.eclipse.swt
