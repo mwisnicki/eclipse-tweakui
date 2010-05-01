@@ -2,6 +2,6 @@
 <aspectj>
     <aspects>
         <aspect
-            name="com.marcwi.eclipse.tweakui.aspects.FixSwtAspect" />
+            name="com.marcwi.eclipse.tweakui.aspects.SwtTreeAspect" />
     </aspects>
 </aspectj>
