@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.marcwi.eclipse.tweakui_1.0.0.jar" id="com.marcwi.eclipse.tweakui" version="1.0.0" os="win32" ws="win32"/>
+</site>
