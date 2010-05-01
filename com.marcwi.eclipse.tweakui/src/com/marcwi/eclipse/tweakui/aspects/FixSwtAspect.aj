@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Tree;
 
 public privileged aspect FixSwtAspect {
 	// TODO figure out if it is possible to have classic [+] with modern look
+	// FIXME tree-tables selection is weird (eg. error log, installed software)
 
 	final static int TVS_SINGLEEXPAND = 0x0400;
 
