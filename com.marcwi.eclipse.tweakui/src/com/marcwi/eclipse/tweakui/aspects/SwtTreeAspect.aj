@@ -21,6 +21,10 @@ import org.eclipse.swt.widgets.Tree;
 // FIXME fix those access violations from swt.internal.*
 //       but I can't get it to depend on swt.win32 if I make myself a fragment of swt
 
+/**
+ * Changes SWT {@link Tree} widget to restore classic XP style of drawing lines
+ * and [+]/[-] fold buttons.
+ */
 public privileged aspect SwtTreeAspect {
 	// TODO figure out if it is possible to have classic [+] with modern look
 	// FIXME tree-tables selection is weird (eg. error log, installed software)
