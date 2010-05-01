@@ -3,7 +3,11 @@ package com.marcwi.eclipse.tweakui.aspects;
 import org.eclipse.swt.internal.win32.OS;
 import org.eclipse.swt.widgets.Tree;
 
+// FIXME fix those access violations from swt.internal.*
+//       but I can't get it to depend on swt.win32 if I make myself a fragment of swt
+
 public privileged aspect FixSwtAspect {
+	// TODO figure out if it is possible to have classic [+] with modern look
 
 	final static int TVS_SINGLEEXPAND = 0x0400;
 
@@ -16,7 +20,7 @@ public privileged aspect FixSwtAspect {
 	}
 
 	boolean around() :
-		withincode(* Tree.*(..))
+		within(Tree)
 		&& call(boolean OS.IsAppThemed()) {
 		return false;
 	}
